@@ -1,0 +1,49 @@
+<div class="modal fade" id="modalCerebros" #modalCerebros tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog " role="document ">
+        <div class="modal-content ">
+            <div class="modal-header ">
+                <h5 class="modal-title " id="exampleModalLabel ">Agregar Zombie</h5>
+                <button type="button " class="close " data-dismiss="modal" aria-label="Close ">
+                    <span aria-hidden="true ">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body ">
+                <div class="position-relative form-group ">
+                    <label for="flavor" class=" ">Sabor</label>
+                    <select [(ngModel)]="flavor" name="flavor" id="flavor" class="form-control ">
+                    <option>Vainilla</option>
+                    <option>Chocolate</option>
+                </select></div>
+                <div class="position-relative form-group ">
+                    <label for="descripion" class=" ">Descripcion</label>
+                    <input [(ngModel)]="description" name="description" id="descripion" placeholder="Description" type="text" class="form-control">
+                </div>
+                <div class="position-relative form-group ">
+                    <label for="iq" class=" ">Precio</label>
+                    <input [(ngModel)]="iq" name="iq" id="iq" placeholder="Precio" type="number" class="form-control">
+                </div>
+                <div class="position-relative form-group ">
+                    <label for="picture" class=" ">Foto</label>
+                    <input [(ngModel)]="picture" name="picture" id="picture" placeholder="Picture" type="text" class="form-control">
+                </div>
+
+                <div *ngIf="errorFlavor" class="mb-3 card text-white card-body bg-danger">
+                    <h5 class="text-white card-title">Name</h5>{{error.error.text.flavor.message}}</div>
+
+                <div *ngIf="errorDescription" class="mb-3 card text-white card-body bg-danger">
+                    <h5 class="text-white card-title">Email</h5>{{error.error.text.description.message}}</div>
+
+                <div *ngIf="errorIQ" class="mb-3 card text-white card-body bg-danger">
+                    <h5 class="text-white card-title">Type</h5>{{error.error.text.iq.message}}</div>
+
+                <div *ngIf="errorPicture" class="mb-3 card text-white card-body bg-danger">
+                    <h5 class="text-white card-title">Type</h5>{{error.error.text.picture.message}}</div>
+
+            </div>
+            <div class="modal-footer ">
+                <button type="button " class="btn btn-secondary " data-dismiss="modal">Cerrar</button>
+                <button type="button " class="btn btn-primary" (click)="guardarCerebro()">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>

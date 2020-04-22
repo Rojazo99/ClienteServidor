@@ -1,0 +1,39 @@
+<app-title></app-title>
+
+<div class="col-lg-6">
+    <div class="main-card mb-3 card">
+        <div class="card-body">
+            <button type="button" class="btm mr-2 mb-2 btn-primary pull-right" data-toggle="modal" data-target="#modal">Agregar Zombie</button>
+            <h5 class="card-title">Zombies</h5>
+            <table class="mb-0 table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Tipo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let zombie of zombies | async; let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{ zombie.nombre }}</td>
+                        <td>{{ zombie.email }}</td>
+                        <td>{{ zombie.type }}</td>
+                        <td>
+                            <a (click)="editZombie(zombie)">
+                                <i class="fas fa-edit"></i>
+                              </a>
+                            <a (click)="eliminarZombie(zombie._id)">
+                                <i class="fas fa-trash danger"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>
+
